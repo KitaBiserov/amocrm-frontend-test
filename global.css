@@ -1,0 +1,397 @@
+:root {
+  --black: #0e1014;
+  --white: #e4e5ea;
+  --dark-gray: #656566;
+  --linear-gradient: linear-gradient(to right, #fcb045, #ff3f78);
+  font-family: Inter, sans-serif;
+  font-feature-settings: "liga" 1, "calt" 1; /* fix for Chrome */
+}
+
+@supports (font-variation-settings: normal) {
+  :root {
+    font-family: InterVariable, sans-serif;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  background-color: var(--black);
+}
+
+html {
+  text-rendering: optimizeLegibility;
+  font-family: "Inter", sans-serif;
+  color: var(--white);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: stretch;
+  font-size: 16px;
+}
+
+main {
+  position: relative;
+  flex: 1 1 auto;
+  background-image: image-set(
+    url("public/assets/bg-desktop.webp") type("image/webp"),
+    url("public/assets/bg-desktop.png") type("image/png")
+  );
+  background-position: 20% 20%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+section {
+  background: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 1141px;
+  margin: 0 auto;
+}
+
+header {
+  padding-top: 1rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  & .logo {
+    flex: 1;
+    gap: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: fit-content;
+  }
+
+  & .logo span {
+    font-family: Montserrat;
+    flex: 1;
+    white-space: wrap;
+    font-size: 10px;
+    font-weight: 300;
+  }
+}
+
+header nav {
+  flex: 3;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+header nav ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  font-size: 16px;
+}
+
+ul li::marker {
+  content: " ";
+}
+
+.social {
+  display: flex;
+  flex: 1;
+  gap: 1rem;
+}
+
+.social svg {
+  width: 20px;
+}
+
+h1 {
+  margin: 0;
+  font-weight: 400;
+  font-size: 48px;
+}
+
+.intro {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 1rem 0;
+
+  & .features {
+    row-gap: 1rem;
+    text-align: right;
+    padding-top: 1rem;
+  }
+  & .features span {
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 18px;
+  }
+  & .title {
+    flex: 1;
+  }
+  & .title strong {
+    font-size: 3rem;
+  }
+  & .right-container {
+    text-align: right;
+  }
+  & .right-container strong {
+    font-weight: 700;
+    letter-spacing: 0.05625rem;
+    text-transform: uppercase;
+  }
+
+  & .features-mob {
+    display: none;
+  }
+}
+
+.gradient-text {
+  background: linear-gradient(to right, #ff8a00 0%, #dd4c4f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+strong {
+  font-weight: 900;
+}
+
+.intro p {
+  font-family: "Montserrat";
+}
+
+.col-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+  & .policy {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+  }
+  & .policy a {
+    color: var(--white);
+    text-decoration: underline;
+  }
+  & .policy span {
+    color: var(--white);
+    font-family: Montserrat;
+    font-size: 12px;
+  }
+  & .contacts {
+    text-align: right;
+  }
+  & .social {
+    justify-content: flex-end;
+  }
+  & .contacts ul li::hover {
+    filter: none;
+  }
+  & .contacts a {
+    color: var(--white);
+    text-decoration: none;
+  }
+}
+footer nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+footer ul {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 1rem 0;
+  flex: 1;
+  gap: 0.5rem;
+}
+
+footer ul li {
+  cursor: pointer;
+}
+
+footer ul li:hover {
+  filter: brightness(90%);
+}
+footer nav div {
+  flex: 1;
+}
+footer nav div:nth-child(2) {
+  flex: 2;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+footer span {
+  color: var(--dark-gray);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+button {
+  margin-top: 1rem;
+  background: #4077f3;
+  padding: 1rem 2rem;
+  font-weight: 500;
+  border: 0px;
+  color: var(--white);
+}
+
+button:focus {
+  outline: 3px solid var(--white);
+}
+
+button::hover {
+  filter: brightness(110%);
+}
+
+a {
+  width: max-content;
+  color: var(--white);
+  text-decoration: none;
+  font-size: 16px;
+}
+
+@media (max-width: 600px) {
+  main {
+    background: none;
+  }
+  .container {
+    max-width: 288px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  section {
+    background-image: image-set(
+      url("public/assets/bg.avif") type("image/avif"),
+      url("public/assets/bg.webp") type("image/webp")
+    );
+    padding: 1rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    margin: 0;
+    padding: 1rem 0;
+    background: var(--black);
+    height: unset;
+    & .social {
+      display: none;
+    }
+
+    & .logo {
+      display: none;
+    }
+  }
+
+  header nav {
+    padding: 0 1rem;
+    flex: 0;
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+
+  header nav ul {
+    font-size: 12px;
+    text-style: uppercase;
+  }
+  header nav ul li:last-child {
+    display: none;
+  }
+
+  .intro {
+    gap: 1rem;
+    flex-direction: column;
+    & .right-container {
+      text-align: left;
+    }
+    & .features {
+      display: none;
+    }
+    & .features-mob {
+      font-family: Montserrat;
+      text-transform: uppercase;
+      display: grid;
+      font-size: 13px;
+      padding-top: 1rem;
+      row-gap: 1rem;
+    }
+    & .features-mob span::before {
+      content: url("public/assets/Line 9.svg");
+      vertical-align: super;
+      margin-right: 0.5rem;
+    }
+  }
+  .bg-asset {
+    display: none;
+  }
+  .intro {
+    height: 445px;
+    & .title strong {
+      font-size: 36px;
+    }
+    & div {
+      padding: 0;
+    }
+  }
+
+  footer {
+    position: relative;
+    background: var(--black);
+    padding: 1rem;
+  }
+
+  footer nav {
+    text-align: left;
+    flex-direction: column;
+  }
+
+  footer nav ul {
+    gap: 0.5rem;
+    font-size: 14px;
+  }
+  footer span {
+    font-size: 12px;
+  }
+  footer nav ul:last-child {
+    text-align: left;
+  }
+  footer {
+    & .policy {
+      padding-top: 1rem;
+      text-align: left;
+    }
+    & .contacts,
+    .social {
+      text-align: left;
+      justify-content: flex-start;
+    }
+  }
+  button {
+    display: none;
+  }
+}
